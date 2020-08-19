@@ -1,0 +1,90 @@
+//git常用命令
+
+		//创建一个版本库
+		mkdir learngit
+
+		//打开某版本库
+		cd learngit
+
+		//显示当前目录
+		pwd
+
+		//把当前目录变成Git可以管理的仓库（初始化一个Git仓库）
+		git init
+
+		//查询当前目录下的目录
+		ls -ah
+
+		//把文件添加到仓库
+		git add <readme.txt>
+
+		//查看修改结果，掌握仓库当前状态
+		git status
+
+		//查看difference
+		git diff
+
+		//把文件提交到仓库
+		//-m 后输入的是本次提交的说明
+		git commit -m <"...">
+
+		//git log 查看历史提交日志
+		//--pretty=oneline 日志简略显示
+		git log --pretty=oneline
+
+		//回退到上一个版本
+		//HEAD 指当前版本  HEAD^^ 指上上一个版本  HEAD~x 指往上x个版本
+		git reset --hard HEAD^
+
+		//指定回退到已回退区的某版本（命令行窗口还没有被关掉时）
+		git reset --hard <版本号前几位>
+
+		//记录之前发生的每一次命令（可用于命令窗口关闭后，回退时查看版本号）
+		git reflog
+
+		//查看工作区和版本库里面最新版本的区别
+		git diff HEAD -- readme.txt
+
+		//两种含义：①文件在修改后还没有放到暂存区，撤销修改回到和版本库一摸一样的状态
+		//          ②已经添加到暂存区后，又进行修改，撤销修改回到添加到暂存区后的状态
+		//简单来说，即，让文件回到最近一次git commit或git add时的状态
+		git checkout -- <file>
+
+		//把暂存区的修改回退到工作区
+		git reset HEAD <file>
+		//丢弃工作区的修改
+		git checkout -- <file>
+
+		//在文件管理器中删除文件（==手动删除文件）
+		rm <file>
+
+		//从版本库中删除该文件
+		git rm <file>
+		并git commit
+
+		//恢复文件（仅从文件管理器中删除了该文件，版本库中未删除）
+		//注意：①只能恢复文件到最新版本
+		//      ②从来没有被添加到版本库就被删除的文件无法恢复
+		git checkout -- <file>
+
+
+//将本地库与github上远程库关联
+
+		//创建SSH Key
+		ssh-keygen -t rsa -C <"your email">
+
+		//将本地仓库的内容推送到github仓库
+		//在本地的learngit（想连接的）仓库下运行Github提示的命令
+		如：git remote add origin https://github.com/yingxinwang/learngit.git
+		//把本地库的所有内容推送到远程库上
+		git push -u origin master
+		
+		//将本地master分支的最新修改推送至GitHub
+		git push origin master
+		
+		
+//将远程库克隆到本地
+
+		//克隆一个本地库
+		如：git clone git@github.com:yingxinwang/gitskills.git
+		//也可使用其他如https等地址，但ssh协议速度最快
