@@ -18,7 +18,7 @@
 		//把文件添加到仓库
 		git add <readme.txt>
 
-		//查看修改结果，掌握仓库当前状态
+		//查看修改结果，掌握仓库当前状态  //查看分支融合冲突的文件
 		git status
 
 		//查看difference
@@ -133,3 +133,6 @@
 		
 		//删除分支
 		git branch -d <branch>
+		
+		//用带参数的git log查看分支的合并情况（并不理解什么含义...）
+		git log --graph --pretty=oneline --abbrev-commit
