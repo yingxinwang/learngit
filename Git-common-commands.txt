@@ -28,7 +28,7 @@
 		//-m 后输入的是本次提交的说明
 		git commit -m <"...">
 
-		//git log 查看历史提交日志
+		//git log 查看历史提交日志  q 退出
 		//--pretty=oneline 日志简略显示
 		git log --pretty=oneline
 
@@ -130,6 +130,9 @@
 		
 		//将指定分支合并到当前分支
 		git merge <branch>
+		//禁用Fast forward并合并（会多生成一个commit记录,可以看出来曾经做过合并）
+		//Fast forward 删除分支后，会丢掉分支信息
+		git merge --no-ff -m <"描述"> <branch>
 		
 		//删除分支
 		git branch -d <branch>
